@@ -33,8 +33,6 @@ extern "C" {
   }
 }
 
-#include <cstdint>
-
 int main(void)
 {
   main_cube();
