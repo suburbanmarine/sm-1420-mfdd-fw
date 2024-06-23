@@ -24,6 +24,7 @@ extern "C" {
     keep_foo = &int_dac2_dma_buf;
     keep_foo = &usart3_tx_dma_buf;
     keep_foo = &usart3_rx_dma_buf;
+    keep_foo = &ext_dac_dma_flash_buf;
 
     for(;;)
     {
