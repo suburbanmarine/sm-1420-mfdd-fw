@@ -63,7 +63,11 @@ MEMORY
 {
 DTCMRAM (xrw)      : ORIGIN = 0x20000000, LENGTH = 128K
 RAM_D1 (xrw)      : ORIGIN = 0x24000000, LENGTH = 512K
-RAM_D2 (xrw)      : ORIGIN = 0x30000000, LENGTH = 288K
+
+AHB_SRAM_D1 (xrw)      : ORIGIN = 0x30000000, LENGTH = 128K
+AHB_SRAM_D2 (xrw)      : ORIGIN = 0x30020000, LENGTH = 128K
+AHB_SRAM_D3 (xrw)      : ORIGIN = 0x30040000, LENGTH = 32K
+
 RAM_D3 (xrw)      : ORIGIN = 0x38000000, LENGTH = 64K
 ITCMRAM (xrw)      : ORIGIN = 0x00000000, LENGTH = 64K
 FLASH (rx)      : ORIGIN = 0x8000000, LENGTH = 2048K
@@ -177,7 +181,20 @@ SECTIONS
     . = ALIGN(8);
   } >DTCMRAM
 
-  
+  .user_ahb_sram_d1 : 
+  {
+    . = ALIGN(8);
+  } >AHB_SRAM_D1
+
+  .user_ahb_sram_d2 : 
+  {
+    . = ALIGN(8);
+  } >AHB_SRAM_D2
+
+  .user_ahb_sram_d3 : 
+  {
+    . = ALIGN(8);
+  } >AHB_SRAM_D3
 
   /* Remove information from the standard libraries */
   /DISCARD/ :
