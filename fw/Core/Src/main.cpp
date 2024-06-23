@@ -1,4 +1,6 @@
+#include "main.h"
 #include "cmsis_os.h"
+
 #include "MetalDetector.hpp"
 
 extern "C" {
@@ -28,7 +30,10 @@ extern "C" {
 
     for(;;)
     {
-      osDelay(pdMS_TO_TICKS(10));
+      HAL_DMAEx_ConfigMuxSync
+      HAL_StatusTypeDef ret = HAL_SPI_Transmit_DMA(hspi2, &ext_dac_dma_buf, 6400*sizeof(ext_dac_dma_buf[0]));
+
+      osDelay(pdMS_TO_TICKS(500));
     }
   }
 }
